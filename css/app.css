@@ -1,0 +1,29 @@
+.nav
+{
+    background-color: lightcyan;
+    font-family: Lucida Sans Unicode;
+}
+.log
+{
+    float:left;
+    font-family: serif;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    width: 60%;
+    margin: auto;
+    float: center;
+    
+}
+
+.aaa
+{
+    margin: auto;
+}
+
+.some
+{
+    font-family: fantasy;
+    color: aqua;
+    
+}

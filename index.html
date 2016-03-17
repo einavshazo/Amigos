@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="amigos">
 	
 	<head>
-		
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>	
+         <link rel="stylesheet" type="text/css" href="css/app.css"/>	
 	</head>
 
 	<body>
 	
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src = "js/angular.min.js"></script>
-		<script src = "js/app.js"></script>
-		
-		<div ng-controller = "MyController as app">
-			<div>name: {{app.myVar.name}}</div>
-		
-		</div>
-
+        <script type="application/javascript" src="js/angular-route.min.js"></script>
+        <script type="application/javascript" src = "js/app.js"></script>
+        
+       <br/>
+   <div class="nav" >   
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span4"><img src="images/amigos.JPG"></div>
+                <div class="span2"><a href="file:///C:/Users/Einav/Desktop/amigos/index.html#/home" target="_self" >Home Page</a></div>
+                <div class="span2"><a href="file:///C:/Users/Einav/Desktop/amigos/index.html#/login" target="_self" >Login</a></div>
+                <div class="span2"><a href="file:///C:/Users/Einav/Desktop/amigos/index.html#/gallery" target="_self" >Gallery</a></div>
+                <div class="span2"><a href="file:///C:/Users/Einav/Desktop/amigos/index.html#/reports" target="_self" >Reports</a></div>
+            </div>
+        </div>
+</div> 
+        <div ng-view ></div>
+    
+        
 	</body>
 </html>
