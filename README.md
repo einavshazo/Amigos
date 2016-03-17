@@ -9,7 +9,7 @@ In this system  each one of the users could update about it's activities and upl
 ## Please visit our [live application](https://demo.reactstarterkit.com/)
 - Alright, currently only a landing page...
 
-[![Join the chat at https://gitter.im/robi-y/seproject-team-template](https://badges.gitter.im/robi-y/seproject-team-template.svg)](https://gitter.im/shani-la/HandasatTochnaProject)
+[![Join the chat at https://gitter.im/robi-y/seproject-team-template](https://badges.gitter.im/robi-y/seproject-team-template.svg)](https://gitter.im/shani-la/Amigos_)
 
 ## [Issue Board](https://huboard.com/robi-y/seproject-team-template#/)
 
