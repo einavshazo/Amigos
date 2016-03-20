@@ -6,7 +6,7 @@ In this system  each one of the users could update about it's activities and upl
 
 ![project logo (this one is taken from basecamp)](http://amigosinternational.org/app/uploads/2015/06/Amigos_Logo-black3-390x390.png)
 
-## Please visit our [live application](https://demo.reactstarterkit.com/)
+## Please visit our [live application](http://amigos-yedidim.azurewebsites.net/#/)
 - Alright, currently only a landing page...
 
 [![Join the chat at https://gitter.im/robi-y/seproject-team-template](https://badges.gitter.im/robi-y/seproject-team-template.svg)](https://gitter.im/shani-la/Amigos_)
