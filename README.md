@@ -1,6 +1,6 @@
 # Naot Learning
 
-The Association for the advancement of education-programm of "Learning proper", is collaboration between teachers and dtudents from 7-12 grade, for helping stutens to sucsees in their studies.
+The Association for the advancement of education-programm of "Naot Learning" that was created as a memorial to Naot Vaizman ,that is a collaboration between teachers and students from 7-12 grades, for helping stutens to sucsees in their studies.
 
 
 
