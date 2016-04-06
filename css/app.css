@@ -1,9 +1,15 @@
 .nav
 {
-    background-color: lightcyan;
+    background-color: lightpink;
     font-family: Lucida Sans Unicode;
+    font-size: 20px;
+    text-align: center;
+ 
+    
 }
-.log
+
+
+.login
 {
     float:left;
     font-family: serif;
@@ -12,18 +18,13 @@
     display: flex;
     width: 60%;
     margin: auto;
-    float: center;
-    
+    float: center;   
 }
 
-.aaa
+
+.logo
 {
-    margin: auto;
+    height: 27%;
+    width: 27%;
 }
 
-.some
-{
-    font-family: fantasy;
-    color: aqua;
-    
-}

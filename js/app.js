@@ -1,6 +1,6 @@
 (function() 
  {
-    var app = angular.module('amigos', ['ngRoute']);
+    var app = angular.module('naot', ['ngRoute']);
 
     app.controller('homeController', function($scope) 
     {
@@ -81,7 +81,7 @@
             {
             redirectTo: '/'
             });
-
+        
     });
     
 })();
