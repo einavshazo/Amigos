@@ -1,10 +1,11 @@
-# Amigos
+# Naot Learning
 
-This organization is working  in a national distribution and responds to a great population by a big number of  coordinators.
-This system will arrange all the information by concertrating it in a one single place. 
-In this system  each one of the users could update about it's activities and upload photos, send reports and etc...
+The Association for the advancement of education-programm of "Learning proper", is collaboration between teachers and dtudents from 7-12 grade, for helping stutens to sucsees in their studies.
 
-![project logo (this one is taken from basecamp)](http://amigosinternational.org/app/uploads/2015/06/Amigos_Logo-black3-390x390.png)
+
+
+
+![project logo (this one is taken from basecamp)](http://www.bayit-cham.org.il/sites/default/files/styles/audio_image_style/public/audiofiles/images/%D7%AA%D7%97%D7%99%D7%9C%D7%AA-%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D.png?itok=pAtnt2II)
 
 ## Please visit our [live application](http://amigos-yedidim.azurewebsites.net/#/)
 - Alright, currently only a landing page...
@@ -23,7 +24,7 @@ Please visit our wiki for furthur project info:
 ### [Team Page](../../wiki/team)
 
 ### Project Documents
-- [Project Idea](https://www.dropbox.com/s/tj6fjfr2cv8klv9/yedidim.docx?dl=0) ([Presentation](https://www.dropbox.com/s/4x3n88whyvha29q/yedidim.pptx?dl=0))
+- [Project Idea](https://drive.google.com/file/d/0B9kMG0ECEFbQR1FsT0FfTEk0Nzg/view?usp=docslist_api) 
 - [Project Inception](../../wiki/inception)
 - [Software Requirements Specification](../../wiki/srs)
 - [Software Design Specification](../../wiki/sds)
