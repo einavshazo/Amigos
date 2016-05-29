@@ -28,3 +28,8 @@
     width: 27%;
 }
 
+
+.ilike-blue-container {
+    @extend .pink, .lighten-5;
+  }
+    

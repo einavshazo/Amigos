@@ -2,46 +2,40 @@
 <html ng-app="naot">
 	
 	<head>
+        
 	    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css"/>	
-         <link rel="stylesheet" type="text/css" href="/public/css/app.css"/>	
+        <link rel="stylesheet" type="text/css" href="/public/css/app.css"/>
+        <link rel="stylesheet" type="text/css" href="/public/css/bootstrap-responsive.css"/>
+        <link rel="stylesheet" type="text/css" href="  https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"/>
+        
+           
 	</head>
 
 	<body>
 	
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
 		<script src = "/public/js/angular.min.js"></script>
         <script type="application/javascript" src="/public/js/angular-route.min.js"></script>
         <script type="application/javascript" src = "/public/js/app.js"></script>
-        
+        <script type="application/javascript" src = "/public/js/navbar.js"></script>
+     
        <br/>
-   <div class="nav" >   
-        <div class="container-fluid">
-            <div class="row-fluid">
-                
-               <div class="span3">
-                   <div class="logo"><img src="/public/images/learning.png"></div>
-                </div>
-                <div class="span2">
-                    <a href="/views/index.html#/login" target="_self" ><br/>Login</a>
-                </div>
-                
-                <div class="span2">
-                    <a href="/views/index.html#/home" target="_self" ><br/>Home Page</a>
-                </div>
-                
-                <div class="span2">
-                    <a href="/views/index.html#/gallery" target="_self" ><br/>Gallery</a>
-                </div>
-                
-                <div class="span2">
-                    <a href="/views/index.html#/reports" target="_self" ><br/>Reports</a>
-                </div>
-                
-            </div>
-        </div>
-</div> 
-        <div ng-view ></div>
-    
         
+        
+        <nav-bar></nav-bar>
+          
+ 
+  
+        <div ng-view ></div>
+<!--
+
+        <footer class="page-footer">
+            <div class="footer-copyright"> copyright &copy; 2015 shani</div>
+        </footer>
+-->
+
 	</body>
+    
 </html>
