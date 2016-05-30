@@ -1,12 +1,4 @@
-.nav
-{
-    background-color: lightpink;
-    font-family: Lucida Sans Unicode;
-    font-size: 20px;
-    text-align: center;
- 
-    
-}
+
 
 
 .login
@@ -18,7 +10,8 @@
     display: flex;
     width: 60%;
     margin: auto;
-    float: center;   
+    float: center;
+    padding-right: 300px;
 }
 
 
@@ -29,7 +22,14 @@
 }
 
 
-.ilike-blue-container {
+.ilike-blue-container 
+{
     @extend .pink, .lighten-5;
-  }
+}
+
+
+.parallax-container
+{
+    height: "your height here";
+}
     

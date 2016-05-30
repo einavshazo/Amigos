@@ -3,38 +3,61 @@
 	
 	<head>
         
-	    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css"/>	
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css"/>	
         <link rel="stylesheet" type="text/css" href="/public/css/app.css"/>
         <link rel="stylesheet" type="text/css" href="/public/css/bootstrap-responsive.css"/>
         <link rel="stylesheet" type="text/css" href="  https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/public/css/materialize.css" media="screen,projection"/>
+        <link rel="stylesheet" type="text/css" href="/public/css/materialize.min.css"/>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
            
 	</head>
 
 	<body>
 	
-        <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
 		<script src = "/public/js/angular.min.js"></script>
         <script type="application/javascript" src="/public/js/angular-route.min.js"></script>
         <script type="application/javascript" src = "/public/js/app.js"></script>
         <script type="application/javascript" src = "/public/js/navbar.js"></script>
+        <script type="application/javascript" src = "/public/js/materialize.js"></script>
+        <script type="application/javascript" src = "/public/js/materialize.min.js"></script>
+
+
+        
      
        <br/>
         
         
         <nav-bar></nav-bar>
           
- 
+        <div class="parallax-container">
+            <div class="parallax"><img src="/public/images/1.jpg"></div>
+        </div>
+
+        <div class="section white">
+            <div class="row container">
+                <div ng-view ></div>
+            </div>
+        </div>
+        
+        <div class="parallax-container">
+            <div class="parallax"><img src="/public/images/1.jpg"></div>
+        </div>
+
   
-        <div ng-view ></div>
-<!--
+
+  
+
 
         <footer class="page-footer">
-            <div class="footer-copyright"> copyright &copy; 2015 shani</div>
+            <div class="footer-copyright"> copyright &copy; 2015 shani & Einav</div>
         </footer>
--->
 
 	</body>
     

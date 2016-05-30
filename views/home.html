@@ -1,11 +1,31 @@
 <ul>
- <header> 
-     <some><h1>Welcome to our Organizasion system..!</h1></some>
-    </header>
-    <body>
-          <h3>This web is currently on building, we're sorry for the inconvenience</h3>
-        <img src="images/sad_baby.jpg">
-    </body>
-    
+
+
+        <div class="login">
+            <div class="container">
+                <div class="row">
+                    <form ng-submit="form.submitForm">
+                        <div class="span9"> 
+                            <div>{{form.user}} </div>
+                            Name: <input ng-model="form.user.name" type="text">
+                            <br/>
+                            Password: <input ng-model="form.user.password" type="password">
+                        </div>
+                        <br/>
+                        <input type="submit" class="btn btn-primary pull-right" value="Submit" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
 </ul>
+
+
+
+
+
+
+
+
+
