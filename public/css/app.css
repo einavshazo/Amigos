@@ -12,6 +12,7 @@
     margin: auto;
     float: center;
     padding-right: 300px;
+    
 }
 
 
@@ -31,5 +32,14 @@
 .parallax-container
 {
     height: "your height here";
+}
+
+
+.color
+{
+    background-color:;
+  
+      
+        text-shadow:0 0 55px #fff, 0 0 55px #fff, 0 0 15px #fff, 0 0 20px black, 0 0 30px black, 0 0 80px black, 0 0 55px     black, 0 0 75px #49ff18 
 }
     
