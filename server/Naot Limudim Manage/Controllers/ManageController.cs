@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Naot_Limudim_Manage.Models;
+using Naot_Lemida_Manage_V2.Models;
 
-namespace Naot_Limudim_Manage.Controllers
+namespace Naot_Lemida_Manage_V2.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -1,0 +1,86 @@
+﻿@model Naot_Lemida_Manage_V2.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<h2>הרשמה.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>יצירת חשבון חדש.<br></h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdentityRoleID, "בחר תפקיד", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IdentityRoleID", "בחר תפקיד")
+            @Html.ValidationMessageFor(model => model.IdentityRoleID)
+        </div>
+    </div>
+    <div id="divEmail" class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divPassword" class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divConfirmPassword" class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divName" class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divLastName" class="form-group">
+        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divPhone" class="form-group">
+        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divMail" class="form-group">
+        @Html.LabelFor(m => m.Mail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Mail, new { @class = "form-control" })
+        </div>
+    </div>
+    <div id="divSchoolID" class="form-group">
+        @Html.LabelFor(model => model.SchoolID, "מוסד", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("SchoolID", "בחר מוסד")
+            @Html.ValidationMessageFor(model => model.SchoolID)
+        </div>
+    </div>
+    <div  id="divYearOfStudyID" class="form-group">
+        @Html.LabelFor(model => model.YearOfStudyID, "כיתה", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("YearOfStudyID", "בחר כיתה")
+            @Html.ValidationMessageFor(model => model.YearOfStudyID)
+        </div>
+    </div>
+    <div id="register_button" class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

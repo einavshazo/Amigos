@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Naot_Limudim_Manage.Models
+namespace Naot_Lemida_Manage_V2.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "שם משתמש")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
@@ -42,30 +44,29 @@ namespace Naot_Limudim_Manage.Models
     public class ForgotViewModel
     {
         [Required]
-        [Display(Name = "שם משתמש")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "שם משתמש")]
-        [EmailAddress]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "סיסמה")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "זכור אותי?")]
+        [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
+        [DataType(DataType.Text)]
         [Display(Name = "שם משתמש")]
         public string Email { get; set; }
 
@@ -79,6 +80,35 @@ namespace Naot_Limudim_Manage.Models
         [Display(Name = "אימות סיסמה")]
         [Compare("Password", ErrorMessage = " סיסמאות לא תואמות.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "שם")]
+        public String Name { get; set; }
+
+        [Display(Name = "שם משפחה")]
+        public String LastName { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "נייד")]
+        public String Phone { get; set; }
+
+        [EmailAddress]
+        [Display(Name = "מייל")]
+        public String Mail { get; set; }
+
+        [Display(Name = "מוסד")]
+        public int SchoolID { get; set; }
+        public virtual School School { get; set; }
+
+        [Display(Name = "תפקיד")]
+        public String IdentityRoleID { get; set; }
+        public virtual IdentityRole IdentityRole { get; set; }
+
+        [Display(Name = "כיתה")]
+        public int YearOfStudyID { get; set; }
+        public virtual YearOfStudy YearOfStudy { get; set; }
+
+        public virtual ICollection<Subject> Subjects { get; set; }
+        public virtual ICollection<Option> Options { get; set; }
     }
 
     public class ResetPasswordViewModel

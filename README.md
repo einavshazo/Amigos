@@ -5,7 +5,7 @@ The Association for the advancement of education-programm of "Naot Learning" tha
 
 
 
-![project logo (this one is taken from basecamp)](http://www.bayit-cham.org.il/sites/default/files/styles/audio_image_style/public/audiofiles/images/%D7%AA%D7%97%D7%99%D7%9C%D7%AA-%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D.png?itok=pAtnt2II)
+![project logo (this one is taken from basecamp)](https://github.com/einavshazo/Naot_learning/blob/master/public/images/logo.jpg)
 
 ## Please visit our [live application](http://amigos-yedidim.azurewebsites.net/#/)
 - Alright, currently only a landing page...
