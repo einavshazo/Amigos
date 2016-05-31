@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Naot_Limudim_Manage.Controllers
+namespace Naot_Lemida_Manage_V2.Controllers
 {
     public class HomeController : Controller
     {
