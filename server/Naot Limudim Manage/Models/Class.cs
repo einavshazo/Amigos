@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Naot_Limudim_Manage.Models
+namespace Naot_Lemida_Manage_V2.Models
 {
     public class Class
     {
         public int ID { get; set; }
-        [Display(Name="נושא")]
+        [Display(Name = "נושא")]
         public String Topic { get; set; }
         [Display(Name = "מטרה")]
         public String Target { get; set; }
@@ -17,6 +17,6 @@ namespace Naot_Limudim_Manage.Models
         public DateTime Start { get; set; }
         [Display(Name = "עד-")]
         public DateTime End { get; set; }
-        public virtual ICollection<Present> Presents { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
