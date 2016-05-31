@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Naot_Limudim_Manage.Models;
+using Naot_Lemida_Manage_V2.Models;
 
-namespace Naot_Limudim_Manage.Controllers
+namespace Naot_Lemida_Manage_V2.Controllers
 {
     public class SchoolsController : Controller
     {

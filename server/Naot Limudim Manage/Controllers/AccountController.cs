@@ -8,13 +8,16 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Naot_Limudim_Manage.Models;
+using Naot_Lemida_Manage_V2.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
-namespace Naot_Limudim_Manage.Controllers
+namespace Naot_Lemida_Manage_V2.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -139,7 +142,10 @@ namespace Naot_Limudim_Manage.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            ViewBag.SchoolID = new SelectList(db.Schools, "ID", "Name");
+            ViewBag.YearOfStudyID = new SelectList(db.YearOfStudies, "ID", "Year");
+            ViewBag.IdentityRoleID = db.Roles.ToList().Select(rr=>new SelectListItem {Value=rr.Name.ToString(),Text=rr.Name }).ToList();
+            return PartialView();
         }
 
         //
@@ -151,8 +157,21 @@ namespace Naot_Limudim_Manage.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                  
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    LastName = model.LastName,
+                    Phone = model.Phone,
+                    Mail = model.Mail,
+                    SchoolID = model.SchoolID,
+                    YearOfStudyID = model.YearOfStudyID,
+                    IdentityRoleID = db.Roles.Where(rr => rr.Name == model.IdentityRoleID).FirstOrDefault().Id
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

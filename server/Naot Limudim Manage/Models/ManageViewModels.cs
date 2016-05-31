@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Naot_Limudim_Manage.Models
+namespace Naot_Lemida_Manage_V2.Models
 {
     public class IndexViewModel
     {
