@@ -1,10 +1,10 @@
-﻿@model Naot_Limudim_Manage.Models.YearOfStudy
+﻿@model Naot_Lemida_Manage_V2.Models.YearOfStudy
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "עריכת שנת לימוד";
 }
 
-<h2>Edit</h2>
+<h2>עריכת שנת לימוד</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>YearOfStudy</h4>
+        <h4>שנת לימוד</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -27,15 +27,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="שמור" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

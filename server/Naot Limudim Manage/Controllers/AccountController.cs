@@ -155,11 +155,13 @@ namespace Naot_Lemida_Manage_V2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            var roleid = db.Roles.Where(r => r.Name == model.IdentityRoleID).FirstOrDefault();
+            model.IdentityRoleID = roleid.Id;
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser
                 {
-                  
+
                     UserName = model.Email,
                     Email = model.Email,
                     Name = model.Name,
@@ -168,13 +170,12 @@ namespace Naot_Lemida_Manage_V2.Controllers
                     Mail = model.Mail,
                     SchoolID = model.SchoolID,
                     YearOfStudyID = model.YearOfStudyID,
-                    IdentityRoleID = db.Roles.Where(rr => rr.Name == model.IdentityRoleID).FirstOrDefault().Id
+                    IdentityRoleID = model.IdentityRoleID
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                   // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -182,7 +183,7 @@ namespace Naot_Lemida_Manage_V2.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Users");
                 }
                 AddErrors(result);
             }

@@ -33,14 +33,14 @@ namespace Naot_Lemida_Manage_V2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(school);
+            return PartialView(school);
         }
 
         // GET: Schools/Create
         public ActionResult Create()
         {
             ViewBag.CityID = new SelectList(db.Cities, "ID", "Name");
-            return View();
+            return PartialView();
         }
 
         // POST: Schools/Create
@@ -74,7 +74,7 @@ namespace Naot_Lemida_Manage_V2.Controllers
                 return HttpNotFound();
             }
             ViewBag.CityID = new SelectList(db.Cities, "ID", "Name", school.CityID);
-            return View(school);
+            return PartialView(school);
         }
 
         // POST: Schools/Edit/5
@@ -106,7 +106,7 @@ namespace Naot_Lemida_Manage_V2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(school);
+            return PartialView(school);
         }
 
         // POST: Schools/Delete/5

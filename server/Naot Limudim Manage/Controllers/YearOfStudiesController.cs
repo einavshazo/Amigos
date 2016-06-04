@@ -1,112 +1,102 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Naot_Lemida_Manage_V2.Models;
 
 namespace Naot_Lemida_Manage_V2.Controllers
 {
-    public class CitiesController : Controller
+    public class YearOfStudiesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Cities
+        // GET: YearOfStudies
         public ActionResult Index()
         {
-            return View(db.Cities.ToList());
+            return View(db.YearOfStudies.ToList());
         }
 
-        // GET: Cities/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            City city = db.Cities.Find(id);
-            if (city == null)
-            {
-                return HttpNotFound();
-            }
-            return PartialView(city);
-        }
 
-        // GET: Cities/Create
+        // GET: YearOfStudies/Create
         public ActionResult Create()
         {
             return PartialView();
         }
 
-        // POST: Cities/Create
+        // POST: YearOfStudies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] City city)
+        public ActionResult Create([Bind(Include = "ID,Year")] YearOfStudy yearOfStudy)
         {
             if (ModelState.IsValid)
             {
-                db.Cities.Add(city);
+                db.YearOfStudies.Add(yearOfStudy);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(city);
+            return View(yearOfStudy);
         }
 
-        // GET: Cities/Edit/5
+        // GET: YearOfStudies/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            City city = db.Cities.Find(id);
-            if (city == null)
+            YearOfStudy yearOfStudy = db.YearOfStudies.Find(id);
+            if (yearOfStudy == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(city);
+            return PartialView(yearOfStudy);
         }
 
-        // POST: Cities/Edit/5
+        // POST: YearOfStudies/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] City city)
+        public ActionResult Edit([Bind(Include = "ID,Year")] YearOfStudy yearOfStudy)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(city).State = EntityState.Modified;
+                db.Entry(yearOfStudy).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(city);
+            return View(yearOfStudy);
         }
 
-        // GET: Cities/Delete/5
+        // GET: YearOfStudies/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            City city = db.Cities.Find(id);
-            if (city == null)
+            YearOfStudy yearOfStudy = db.YearOfStudies.Find(id);
+            if (yearOfStudy == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(city);
+            return PartialView(yearOfStudy);
         }
 
-        // POST: Cities/Delete/5
+        // POST: YearOfStudies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            City city = db.Cities.Find(id);
-            db.Cities.Remove(city);
+            YearOfStudy yearOfStudy = db.YearOfStudies.Find(id);
+            db.YearOfStudies.Remove(yearOfStudy);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
