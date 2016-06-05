@@ -28,13 +28,13 @@ namespace Naot_Lemida_Manage_V2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(city);
+            return PartialView(city);
         }
 
         // GET: Cities/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Cities/Create
@@ -66,7 +66,7 @@ namespace Naot_Lemida_Manage_V2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(city);
+            return PartialView(city);
         }
 
         // POST: Cities/Edit/5
@@ -97,7 +97,7 @@ namespace Naot_Lemida_Manage_V2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(city);
+            return PartialView(city);
         }
 
         // POST: Cities/Delete/5

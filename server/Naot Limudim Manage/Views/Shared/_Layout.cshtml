@@ -6,8 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
-    <meta name="description" content="The description of my page" />
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -33,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>© 2016 - כל הזכויות שמורות לנאות למידה.</p>
+            <p>&copy; @DateTime.Now.Year - כל הזכויות שמורות לנאות למידה</p>
         </footer>
     </div>
 

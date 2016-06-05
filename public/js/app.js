@@ -1,12 +1,7 @@
 (function() 
  {
     var app = angular.module('naot', ['ngRoute']);
-    //INITIALIZE MODULE
-    //angular.module('naot', ['ngRoute'])
-    // .service(...)
-    //use existing module
-    //angular.module('naot')
-    //  .controller("homeCon...")
+
     app.controller('homeController', function($scope) 
     { 
     });
@@ -14,11 +9,6 @@
     app.controller('managerController', function($scope) 
     {
         this.images = images;
-
-    });
-      app.controller('studentController', function($scope) 
-    {
-       
 
     });
     
@@ -75,17 +65,11 @@ $(document).ready(function(){
             controller: 'managerController',
             controllerAs:'manager'
             })
-            
-            .when('/student',
+        
+        
+            .when('/student', 
             {
             templateUrl: 'student.html',
-            controller: 'studentController',
-            controllerAs:'student'
-            })
-        
-            .when('/reports', 
-            {
-            templateUrl: 'reports.html',
             controller: 'reportsController',
             controllerAs: 'reports'
             })
