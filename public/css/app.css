@@ -9,7 +9,8 @@
     text-align: center;
     display: flex;
     width: 60%;
-    margin: auto;
+    margin-top: 100px;
+    margin-left: 150px;
     float: center;
     padding-right: 300px;
 }
@@ -37,4 +38,21 @@
 .color
 {
     background-color: ;
+}
+
+
+.info
+{
+    float:left;
+    text-align: center;
+    direction: rtl;
+    color: #424242;
+    font-size: 20px;
+    font-family: "Verdana";
+    margin-top: 100px;
+    margin-bottom: 100px;
+    line-height: 30px;
+    background-color: #c5cae9;
+    padding: 30px;
+    border-radius: 30px;
 }
