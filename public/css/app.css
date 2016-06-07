@@ -63,3 +63,9 @@
     direction: rtl;  
 }
 
+.left
+{
+    float: left;
+    padding-left: 20px;
+/*   display: inline-block;*/
+}
