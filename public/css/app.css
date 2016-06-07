@@ -1,5 +1,8 @@
 
-
+.hebrew
+{
+    direction: rtl;  
+}
 
 .login
 {
@@ -58,10 +61,11 @@
     border-radius: 30px;
 }
 
-.hebrew
-{
-    direction: rtl;  
-}
+
+
+
+
+
 
 .left
 {
