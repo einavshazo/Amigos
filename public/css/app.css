@@ -58,3 +58,8 @@
     border-radius: 30px;
 }
 
+.hebrew
+{
+    direction: rtl;  
+}
+
