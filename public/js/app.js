@@ -27,6 +27,16 @@
         
 
     });
+     app.controller('tutorsController', function($scope) 
+    {
+        
+
+    });
+     app.controller('tutorsController', function($scope) 
+    {
+        
+
+    });
     
     
 $(document).ready(function(){
@@ -73,7 +83,12 @@ $(document).ready(function(){
             controller: 'reportsController',
             controllerAs: 'reports'
             })
-        
+             .when('/tutor', 
+            {
+            templateUrl: 'tutor.html',
+            controller: 'tutorController',
+            controllerAs: 'tutors'
+            })
             .otherwise(
             {
             redirectTo: '/'
