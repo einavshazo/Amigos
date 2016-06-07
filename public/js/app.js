@@ -67,9 +67,9 @@ $(document).ready(function(){
             })
         
         
-            .when('/reports', 
+            .when('/student', 
             {
-            templateUrl: 'reports.html',
+            templateUrl: 'student.html',
             controller: 'reportsController',
             controllerAs: 'reports'
             })
