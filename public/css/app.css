@@ -1,5 +1,8 @@
 
-
+.hebrew
+{
+    direction: rtl;  
+}
 
 .login
 {
@@ -13,6 +16,7 @@
     margin-left: 150px;
     float: center;
     padding-right: 300px;
+    
 }
 
 
@@ -33,7 +37,7 @@
 {
     height: "your height here";
 }
-   
+
 
 .color
 {
@@ -56,3 +60,10 @@
     padding: 30px;
     border-radius: 30px;
 }
+
+
+
+
+
+
+
