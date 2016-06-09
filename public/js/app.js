@@ -22,12 +22,19 @@
         }
     });
     
-    app.controller('reportsController', function($scope) 
+    app.controller('studentController', function($scope) 
     {
         
 
     });
-    
+    app.controller('tutorController', function($scope) 
+    {
+        
+
+    });
+
+
+
     
 $(document).ready(function(){
       $('.parallax').parallax();
@@ -70,10 +77,17 @@ $(document).ready(function(){
             .when('/student', 
             {
             templateUrl: 'student.html',
-            controller: 'reportsController',
-            controllerAs: 'reports'
+            controller: 'studentController',
+            controllerAs: 'student'
             })
-        
+
+             .when('/tutor', 
+            {
+            templateUrl: 'tutor.html',
+            controller: 'tutorController',
+            controllerAs: 'tutors'
+            })
+
             .otherwise(
             {
             redirectTo: '/'
