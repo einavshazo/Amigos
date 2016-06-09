@@ -1,56 +1,14 @@
 ﻿@model IEnumerable<Naot_Lemida_Manage_V2.Models.School>
 
 @{
-    ViewBag.Title = "רשימת מוסדות לימוד";
+    ViewBag.Title = "Index";
 }
 
-<h2>רשימת מוסדות לימוד</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("ליצור מוסד חדש", "Create","Schools", new { }, new { @class = "viewDialog", data_dialog_title = "יצירת מוסד חדש " })
+    @Html.ActionLink("Create New", "Create")
 </p>
-
-@section Scripts {
-    <script>
-    $(document).ready(function () {
-
-        $.ajaxSetup({ cache: false });
-
-        $(".viewDialog").on("click", function (e) {
-
-            e.preventDefault();
-            $("<div></div>")
-                .addClass("dialog")
-                .appendTo("body")
-                .dialog({
-                    title: $(this).attr("data-dialog-title"),
-                    close: function () { $(this).remove() },
-                    modal: true,
-                    width: 300,
-                    height:450,
-                    show:
-                    {
-                        effect: 'clip',
-                        duration: 450
-                    },
-                    hide:{
-                        effect: 'clip',
-                        duration: 450
-                    },
-                    showOpt: { direction: 'up' }
-                })
-                .load(this.href);
-        });
-        $(".close").on("click", function (e) {
-            e.preventDefault();
-            $(this).closest(".dialog").dialog("close");
-        });
-    });
-    </script>
-
-    <script src='@Url.Content("~/Scripts/jquery-1.10.2.min.js")' type="text/javascript"></script>
-    <script src='@Url.Content("~/Scripts/jquery-ui-1.11.4.min.js")' type="text/javascript"></script>
-}
 <table class="table">
     <tr>
         <th>
@@ -83,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Number)
         </td>
         <td>
-
-            @Html.ActionLink("ערוך", "Edit", "Schools", new { id = item.ID }, new { @class = "viewDialog", data_dialog_title = "עריכת פרטי מוסד" }) |
-            @Html.ActionLink("מחק", "Delete", "Schools", new { id = item.ID }, new { @class = "viewDialog", data_dialog_title = "מחיקת מוסד " })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
