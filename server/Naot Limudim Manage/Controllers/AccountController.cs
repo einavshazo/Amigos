@@ -155,10 +155,11 @@ namespace Naot_Lemida_Manage_V2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            var roleid = db.Roles.Where(r => r.Name == model.IdentityRoleID).FirstOrDefault();
-            model.IdentityRoleID = roleid.Id;
+            
             if (ModelState.IsValid)
             {
+                var roleid = db.Roles.Where(r => r.Name == model.IdentityRoleID).FirstOrDefault();
+                model.IdentityRoleID = roleid.Id;
                 var user = new ApplicationUser
                 {
 
@@ -175,21 +176,23 @@ namespace Naot_Lemida_Manage_V2.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                   // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Users");
+                    return PartialView("Success");
                 }
                 AddErrors(result);
             }
-
+            ViewBag.SchoolID = new SelectList(db.Schools, "ID", "Name");
+            ViewBag.YearOfStudyID = new SelectList(db.YearOfStudies, "ID", "Year");
+            ViewBag.IdentityRoleID = db.Roles.ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return PartialView(model);
         }
 
         //
