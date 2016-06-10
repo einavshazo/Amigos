@@ -1,4 +1,3 @@
-<<<<<<< HEAD:server/Naot Limudim Manage/Views/Users/Delete.cshtml
 ﻿@model Naot_Lemida_Manage_V2.Models.ApplicationUser
 
 @{
@@ -33,39 +32,3 @@
         </div>
     }
 </div>
-=======
-﻿@model Naot_Lemida_Manage_V2.Models.ApplicationUser
-
-@{
-    ViewBag.Title = "Delete";
-}
-
-<h2>מחיקה</h2>
-
-<h3>
-    אתה בטוח שברצונך למחוק את המשתמש?
-    המחיקה תגרום למחיקת נתונים אחרים קשורים למשתמש הזה.
-</h3>
-<div>
-    <h4>משתמש</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="מחק" class="btn btn-default" /> 
-        </div>
-    }
-</div>
->>>>>>> 8cbf1b4a2470f83c1ccc3768d1841cd020cfc01a:server/Naot Limudim Manage/Views/Users/Delete.cshtml
