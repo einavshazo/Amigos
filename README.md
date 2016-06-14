@@ -31,8 +31,8 @@ Please visit our wiki for furthur project info:
 
 ### Iteration Pages
 - [Iteration 0 - ZFR](../../wiki/iter0-zfr)
-- [Iteration 1 - MVP](https://github.com/einavshazo/Naot_learning/wiki/MVP)
-- [Iteration 2 - HBT](https://github.com/einavshazo/Naot_learning/wiki/Inter2-HBT)
+- [Iteration 1 - MVP](https://github.com/einavshazo/Naot_learning/wiki/Iter1-MVP)
+- [Iteration 2 - HBT](https://github.com/einavshazo/Naot_learning/wiki/Iter2-HBT)
 - [Iteration 3 - CIX](https://github.com/einavshazo/Naot_learning/wiki/Iter3---CIX)
 - [Iteration 4 - MPS](https://github.com/einavshazo/Naot_learning/wiki/Iter4---MPS)
 
