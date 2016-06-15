@@ -48,10 +48,10 @@ namespace Naot_Lemida_Manage_V2.Controllers
             {
                 db.Cities.Add(city);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return PartialView("Success");
             }
 
-            return View(city);
+            return PartialView(city);
         }
 
         // GET: Cities/Edit/5
@@ -82,7 +82,7 @@ namespace Naot_Lemida_Manage_V2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(city);
+            return PartialView(city);
         }
 
         // GET: Cities/Delete/5
