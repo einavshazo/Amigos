@@ -6,7 +6,7 @@
 
 <h2>מחיקת עיר</h2>
 
-<h3>האם את/ה בטוח/ה שברצונך למחוק?</h3>
+<h3>האם את/ה בטוח/ה שברצונך למחוק עיר זו?</h3>
 <div>
     <h4>עיר</h4>
     <hr />
@@ -23,10 +23,7 @@
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ID)
 
-        <div class="form-actions no-color">
-            <input type="submit" value="מחק" class="btn btn-default" /> 
-            
-        </div>
     }
 </div>
