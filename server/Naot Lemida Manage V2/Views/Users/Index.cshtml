@@ -1,0 +1,428 @@
+﻿@model IEnumerable<Naot_Lemida_Manage_V2.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "רשימת משתמשים";
+}
+
+<h2>רשימת משתמשים</h2>
+
+<link href='@Url.Content("~/Content/themes/base/all.css")' rel="stylesheet" type="text/css" />
+<p>
+    @Html.ActionLink("לצור משתמש חדש", "Register", "Account", new { }, new { @class = "viewDialogCreate", data_dialog_title = "יצירת משתמש" }) |
+    @Html.ActionLink("לקובץ excel", "ExportData", "Users", new { htmlAttributes = new { @style = ":left;" } })
+</p>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({ cache: false });
+            $(".viewDialogCreate").on("click", function (e) {
+
+                e.preventDefault();
+                $("<div id='dialogContent'></div>")
+                    .addClass("dialog")
+                    .appendTo("body")
+                    .dialog({
+                        title: $(this).attr("data-dialog-title"),
+                        modal: true,
+                        width: 350,
+                        height: 500,
+
+                        buttons: {
+                            "צור": function () {
+                                $.ajax({
+                                    url: "@Url.Action("Register", "Account")",
+                                    type: "POST",
+                                    data: $('form').serialize(),
+                                    datatype: "json",
+                                    success: function (result) {
+
+                                        $("#dialogContent").html(result);
+
+                                    }
+                                });
+                            }
+                        },
+
+                        show:
+                        {
+                            effect: 'clip',
+                            duration: 450
+                        },
+                        hide: {
+                            effect: 'clip',
+                            duration: 450
+                        },
+                        showOpt: { direction: 'up' },
+                        close: function (event, ui) { $(this).dialog('destroy').remove(); },
+
+                    })
+                    .load(this.href);
+
+
+
+            });
+
+            $(".viewDialogDelete").on("click", function (e) {
+
+                e.preventDefault();
+                $("<div id='dialogContent'></div>")
+                    .addClass("dialog")
+                    .appendTo("body")
+                    .dialog({
+                        title: $(this).attr("data-dialog-title"),
+                        modal: true,
+                        width: 'auto',
+                        height: 'auto',
+                        buttons: {
+                            "מחק": function () {
+                                $.ajax({
+                                    url: "@Url.Action("Delete")",
+                                    type: "POST",
+                                    data: $('form').serialize(),
+                                    datatype: "json",
+                                    success: function (result) {
+
+                                        $("#dialogContent").html(result);
+                                    }
+                                });
+                            }
+                        },
+
+                        show:
+                    {
+                        effect: 'clip',
+                        duration: 450
+                    },
+                        hide: {
+                            effect: 'clip',
+                            duration: 450
+                        },
+                        showOpt: { direction: 'up' },
+                        close: function (event, ui) { $(this).dialog('destroy').remove(); }
+                    })
+                    .load(this.href);
+            });
+
+            $(".viewDialogEdit").on("click", function (e) {
+
+                e.preventDefault();
+                $("<div id='dialogContent'></div>")
+                    .addClass("dialog")
+                    .appendTo("body")
+                    .dialog({
+                        title: $(this).attr("data-dialog-title"),
+                        modal: true,
+                        width: 'auto',
+                        height: 'auto',
+                        buttons: {
+                            "שמור": function () {
+                                $.ajax({
+                                    url: "@Url.Action("Edit")",
+                                    type: "POST",
+                                    data: $('form').serialize(),
+                                    datatype: "json",
+                                    success: function (result) {
+
+                                        $("#dialogContent").html(result);
+                                    }
+                                });
+                            }
+                        },
+
+                        show:
+                    {
+                        effect: 'clip',
+                        duration: 450
+                    },
+                        hide: {
+                            effect: 'clip',
+                            duration: 450
+                        },
+                        showOpt: { direction: 'up' },
+                        close: function (event, ui) {
+                            $(this).dialog('destroy').remove();
+                        }
+                    })
+                    .load(this.href);
+            });
+
+            $(".viewDialogDetails").on("click", function (e) {
+
+                e.preventDefault();
+                $("<div id='dialogContent'></div>")
+                    .addClass("dialog")
+                    .appendTo("body")
+                    .dialog({
+                        title: $(this).attr("data-dialog-title"),
+                        modal: true,
+                        width: 'auto',
+                        height: 'auto',
+
+
+                        show:
+                    {
+                        effect: 'clip',
+                        duration: 450
+                    },
+                        hide: {
+                            effect: 'clip',
+                            duration: 450
+                        },
+                        showOpt: { direction: 'up' },
+                        close: function (event, ui) {
+                            $(this).dialog('destroy').remove();
+                        }
+                    })
+                    .load(this.href);
+            });
+
+            $(".close").on("click", function (e) {
+                e.preventDefault();
+                $(this).closest(".dialog").dialog("close");
+            });
+        });
+        $(function () {
+            $("#accordion").accordion({
+                header: "h3",
+                autoheight: false,
+                active: false,
+                alwaysOpen: false,
+                fillspace: false,
+                collapsible: true,
+                heightStyle: "content"   //auto, fill, content
+            });
+        });
+    </script>
+    <script src='@Url.Content("~/Scripts/jquery-1.10.2.min.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/jquery-ui-1.11.4.min.js")' type="text/javascript"></script>
+}
+<div id="accordion">
+    <h3> רשימת מנהלים :@ViewBag.numOfManagers </h3>
+
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("N")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th></th>
+            </tr>
+            @{int counter = 1;}
+            @foreach (var item in Model)
+            {
+                if (item.IdentityRole.Name.Equals("מנהל"))
+                {
+                    <tr>
+                        <td>
+                            @counter
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+
+
+                        <td>
+                            @Html.ActionLink("ערוך", "Edit", "Users", new { id = item.Id }, new { @class = "viewDialogEdit", data_dialog_title = "עריכת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("הצג פרטים", "Details", "Users", new { id = item.Id }, new { @class = "viewDialogDetails", data_dialog_title = "הצגת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("מחק", "Delete", "Users", new { id = item.Id }, new { @class = "viewDialogDelete", data_dialog_title = "מחיקת משתמש", @style = "color:#428bca;" })
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+
+        </table>
+    </div>
+    <br>
+    <h3>רשימת רכזים :@ViewBag.numOfCoordinators</h3>
+    @{counter = 1;}
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("N")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item.IdentityRole.Name.Equals("רכז"))
+                {
+                    <tr>
+                        <td>
+                            @counter
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.School.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ערוך", "Edit", "Users", new { id = item.Id }, new { @class = "viewDialogEdit", data_dialog_title = "עריכת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("הצג פרטים", "Details", "Users", new { id = item.Id }, new { @class = "viewDialogDetails", data_dialog_title = "הצגת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("מחק", "Delete", "Users", new { id = item.Id }, new { @class = "viewDialogDelete", data_dialog_title = "מחיקת משתמש", @style = "color:#428bca;" })
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+
+        </table>
+    </div>
+    <br>
+    <h3>רשימת מורים :@ViewBag.numOfTeachers</h3>
+    @{counter = 1;}
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("N")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.Name)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item.IdentityRole.Name.Equals("מורה"))
+                {
+                    <tr>
+                        <td>
+                            @counter
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Mail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.School.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ערוך", "Edit", "Users", new { id = item.Id }, new { @class = "viewDialogEdit", data_dialog_title = "עריכת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("הצג פרטים", "Details", "Users", new { id = item.Id }, new { @class = "viewDialogDetails", data_dialog_title = "הצגת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("מחק", "Delete", "Users", new { id = item.Id }, new { @class = "viewDialogDelete", data_dialog_title = "מחיקת משתמש", @style = "color:#428bca;" })
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+
+        </table>
+    </div>
+    <br>
+    <h3>רשימת תלמידים :@ViewBag.numOfPupils</h3>
+    @{counter = 1;}
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("N")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YearOfStudy.Year)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item.IdentityRole.Name.Equals("תלמיד"))
+                {
+                    <tr>
+                        <td>
+                            @counter
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.School.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YearOfStudy.Year)
+                        </td>
+                        <td>
+                            @Html.ActionLink("ערוך", "Edit", "Users", new { id = item.Id }, new { @class = "viewDialogEdit", data_dialog_title = "עריכת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("הצג פרטים", "Details", "Users", new { id = item.Id }, new { @class = "viewDialogDetails", data_dialog_title = "הצגת פרטי משתמש", @style = "color:#428bca;" }) |
+                            @Html.ActionLink("מחק", "Delete", "Users", new { id = item.Id }, new { @class = "viewDialogDelete", data_dialog_title = "מחיקת משתמש", @style = "color:#428bca;" })
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+
+        </table>
+    </div>
+</div>

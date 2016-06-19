@@ -1,0 +1,83 @@
+﻿@model Naot_Lemida_Manage_V2.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "פרטי המשתמש";
+}
+
+<h2>פרטי המשתמש</h2>
+
+<div>
+    <h4>משתמש</h4>
+    <hr />
+    <input type="hidden" autofocus="autofocus"/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("שם משתמש")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        @if (!(Model.IdentityRole.Name.Equals("מנהל")))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+        }
+        @if ((Model.IdentityRole.Name.Equals("מורה")))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mail)
+            </dd>
+        }
+        @if ((Model.IdentityRole.Name.Equals("תלמיד")))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.YearOfStudy.Year)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YearOfStudy.Year)
+            </dd>
+        }
+        @if (!(Model.IdentityRole.Name.Equals("מנהל")))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.School.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.School.Name)
+            </dd>
+        }
+        <dt>
+            @Html.DisplayName("תפקיד")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdentityRole.Name)
+        </dd>
+    </dl>
+</div>

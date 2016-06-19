@@ -1,0 +1,13 @@
+﻿
+#calendar .fc-today{
+    background:#d2691e ;
+}
+#calendar .fc-day {
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+#calendar .fc-day:hover {
+    background: #e5ffe5;
+}

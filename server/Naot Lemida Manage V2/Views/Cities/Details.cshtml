@@ -1,0 +1,22 @@
+﻿@model Naot_Lemida_Manage_V2.Models.City
+
+@{
+    ViewBag.Title = "פרטי העיר";
+}
+
+<h2>פרטי העיר</h2>
+
+<div>
+    <h4>עיר</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
